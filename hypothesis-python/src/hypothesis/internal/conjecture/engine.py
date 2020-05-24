@@ -891,7 +891,8 @@ class ConjectureRunner:
         # a warning.   Many CI systems will kill a build after around ten minutes with
         # no output, and appearing to hang isn't great for interactive use either -
         # showing partially-shrunk examples is better than quitting with no examples!
-        self.finish_shrinking_deadline = perf_counter() + 300
+        # self.finish_shrinking_deadline = perf_counter() + 300
+        self.finish_shrinking_deadline = float( 'inf' )
 
         for prev_data in sorted(
             self.interesting_examples.values(), key=lambda d: sort_key(d.buffer)
